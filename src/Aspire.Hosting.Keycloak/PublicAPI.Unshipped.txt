@@ -3,8 +3,36 @@ Aspire.Hosting.ApplicationModel.KeycloakResource
 Aspire.Hosting.ApplicationModel.KeycloakResource.AdminPasswordParameter.get -> Aspire.Hosting.ApplicationModel.ParameterResource!
 Aspire.Hosting.ApplicationModel.KeycloakResource.AdminUserNameParameter.get -> Aspire.Hosting.ApplicationModel.ParameterResource?
 Aspire.Hosting.ApplicationModel.KeycloakResource.KeycloakResource(string! name, Aspire.Hosting.ApplicationModel.ParameterResource? admin, Aspire.Hosting.ApplicationModel.ParameterResource! adminPassword) -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource
+Aspire.Hosting.Keycloak.KeycloakRealmResource.AuthorizationEndpoint.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.AuthorizationEndpoint.set -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.AuthorizationEndpointExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.ConnectionStringExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.EndSessionEndpoint.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.EndSessionEndpoint.set -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.EndSessionEndpointExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.IntrospectionEndpoint.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.IntrospectionEndpoint.set -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.IntrospectionEndpointExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.IssuerExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.KeycloakRealmResource(string! name, string! realmName, Aspire.Hosting.ApplicationModel.KeycloakResource! parent) -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.MetadataAddress.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.MetadataAddress.set -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.MetadataAddressExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.Parent.get -> Aspire.Hosting.ApplicationModel.KeycloakResource!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.RealmName.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.RegistrationEndpoint.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.RegistrationEndpoint.set -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.RegistrationEndpointExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.TokenEndpoint.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.TokenEndpoint.set -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.TokenEndpointExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.UserInfoEndpoint.get -> string!
+Aspire.Hosting.Keycloak.KeycloakRealmResource.UserInfoEndpoint.set -> void
+Aspire.Hosting.Keycloak.KeycloakRealmResource.UserInfoEndpointExpression.get -> Aspire.Hosting.ApplicationModel.ReferenceExpression!
 Aspire.Hosting.KeycloakResourceBuilderExtensions
 static Aspire.Hosting.KeycloakResourceBuilderExtensions.AddKeycloak(this Aspire.Hosting.IDistributedApplicationBuilder! builder, string! name, int? port = null, Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.ParameterResource!>? adminUsername = null, Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.ParameterResource!>? adminPassword = null) -> Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>!
+static Aspire.Hosting.KeycloakResourceBuilderExtensions.AddRealm(this Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>! builder, string! name, string? realmName = null) -> Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.Keycloak.KeycloakRealmResource!>!
 static Aspire.Hosting.KeycloakResourceBuilderExtensions.WithDataBindMount(this Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>! builder, string! source) -> Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>!
 static Aspire.Hosting.KeycloakResourceBuilderExtensions.WithDataVolume(this Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>! builder, string? name = null) -> Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>!
 static Aspire.Hosting.KeycloakResourceBuilderExtensions.WithRealmImport(this Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>! builder, string! importDirectory, bool isReadOnly = false) -> Aspire.Hosting.ApplicationModel.IResourceBuilder<Aspire.Hosting.ApplicationModel.KeycloakResource!>!
