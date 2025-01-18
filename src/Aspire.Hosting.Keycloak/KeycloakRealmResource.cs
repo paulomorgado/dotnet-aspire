@@ -8,12 +8,25 @@ namespace Aspire.Hosting.Keycloak;
 /// <summary>
 /// Represents a Keycloak Realm resource.
 /// </summary>
-/// <param name="name">The name of the realm resource.</param>
-/// <param name="realmName">The name of the realm.</param>
-/// <param name="parent">The Keycloak server resource associated with this database.</param>
-public sealed class KeycloakRealmResource(string name, string realmName, KeycloakResource parent) : Resource(name), IResourceWithParent<KeycloakResource>, IResourceWithConnectionString
+public sealed class KeycloakRealmResource : Resource, IResourceWithParent<KeycloakResource>, IResourceWithConnectionString
 {
     private EndpointReference? _parentEndpoint;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="KeycloakRealmResource"/> class.
+    /// </summary>
+    /// <param name="name">The name of the realm resource.</param>
+    /// <param name="realmName">The name of the realm.</param>
+    /// <param name="parent">The Keycloak server resource associated with this database.</param>
+    public KeycloakRealmResource(string name, string realmName, KeycloakResource parent) : base(name)
+    {
+        ArgumentNullException.ThrowIfNull(realmName);
+        ArgumentNullException.ThrowIfNull(parent);
+
+        RealmName = realmName;
+        Parent = parent;
+    }
+
     private EndpointReference ParentEndpoint => _parentEndpoint ??= new(Parent, "http");
 
     /// <inheritdoc/>
@@ -96,10 +109,10 @@ public sealed class KeycloakRealmResource(string name, string realmName, Keycloa
     public ReferenceExpression RegistrationEndpointExpression => ReferenceExpression.Create($"{ConnectionStringExpression}{RegistrationEndpoint}");
 
     /// <inheritdoc/>
-    public KeycloakResource Parent { get; } = parent;
+    public KeycloakResource Parent { get; }
 
     /// <summary>
     /// Gets the name of the realm.
     /// </summary>
-    public string RealmName { get; } = realmName;
+    public string RealmName { get; }
 }
